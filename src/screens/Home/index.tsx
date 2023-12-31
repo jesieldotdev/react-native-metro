@@ -4,7 +4,7 @@ import * as S from './styles';
 import HomeViewController from './viewController';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import NewGroup from './components/NewGroup';
-import { Button } from 'react-native-ui-lib';
+import { Button, Text } from 'react-native-ui-lib';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 
 const Stack = createNativeStackNavigator();
@@ -26,15 +26,28 @@ function HomeView() {
   return (
     <NavigationContainer screenOptions={{
       tabBarHideOnKeyboard: true,
+      
     }} independent>
       <Stack.Navigator
         screenOptions={{
           headerShown: true,
+          // headerTitle: '',
+          title: ''
         }}>
         <Stack.Screen
           name="Home"
           component={Home}
           options={{
+            
+            // title: 'Grupos',
+            headerLeft: () => (
+              // <Button style={{backgroundColor: 'transparent'}}>
+                <Text style={{
+                  fontSize: 18,
+                  fontWeight: 300
+                }}>Grupos</Text>
+              // </Button>
+            ),
             headerRight: () => (
               <Button style={{backgroundColor: 'transparent'}}>
                 <Icon name="magnifier" size={18} />
